@@ -11,7 +11,7 @@
 
   <PropertyGroup>
     <PackageId>Software9119.ProxyNsAnalyzer</PackageId>
-    <PackageVersion>1.0.1</PackageVersion>
+    <PackageVersion>1.0.2</PackageVersion>
     <PackageProjectUrl>https://github.com/deep-outcome/Software9119.ProxyNsAnalyzer</PackageProjectUrl>    
     <PackageIcon>ico.jpg</PackageIcon>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
@@ -20,7 +20,7 @@
     <PackageTags>Software9119.ProxyNsAnalyzer, analyzers</PackageTags>
     <DevelopmentDependency>true</DevelopmentDependency>
     <NoPackageAnalysis>true</NoPackageAnalysis>
-
+    <PackageReadmeFile>README.md</PackageReadmeFile>
     <TargetsForTfmSpecificContentInPackage>$(TargetsForTfmSpecificContentInPackage);_AddAnalyzersToOutput</TargetsForTfmSpecificContentInPackage>
   </PropertyGroup>
 

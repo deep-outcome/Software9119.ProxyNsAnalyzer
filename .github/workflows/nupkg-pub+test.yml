@@ -27,6 +27,9 @@ jobs:
       with:
         dotnet-version: 10.0.x
 
+    - name: Remove TestConsumer
+      run: dotnet sln Software9119.ProxyNsAnalyzer.slnx remove Software9119.ProxyNsAnalyzer.TestConsumer/Software9119.ProxyNsAnalyzer.TestConsumer.csproj
+
     - name: Restore
       run: dotnet restore
 
@@ -35,8 +38,7 @@ jobs:
 
     - name: Test
       run: dotnet test --configuration ${{ matrix.configuration }} --no-restore
-    
-      
+
     - name: Pack
       run: dotnet pack ./Software9119.ProxyNsAnalyzer.Package/Software9119.ProxyNsAnalyzer.Package.csproj --configuration ${{ matrix.configuration }} --no-restore --output ${{ github.workspace }}/nupkgs
 
@@ -52,13 +54,13 @@ jobs:
       id: login
       with:
         user: that-deepfelt
-    
+
     - name: Push
       shell: pwsh
       run: |
         $dir = "${{ github.workspace }}/nupkgs"
         $files = Get-ChildItem -Path $dir -File | Where-Object { $_.Extension -in '.nupkg' }
-        if ($files.Count -eq 0) { Write-Error "No packages found in $dir"; exit 1 }        
+        if ($files.Count -eq 0) { Write-Error "No packages found in $dir"; exit 1 }
         foreach ($f in $files) {
           Write-Host "Pushing $($f.Name)"
           dotnet nuget push $f.FullName --api-key ${{ steps.login.outputs.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json --skip-duplicate }
