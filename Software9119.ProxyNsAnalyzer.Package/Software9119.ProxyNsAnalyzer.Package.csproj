@@ -4,18 +4,18 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <IncludeBuildOutput>false</IncludeBuildOutput>    
+    <IncludeBuildOutput>false</IncludeBuildOutput>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <SuppressDependenciesWhenPacking>true</SuppressDependenciesWhenPacking>
   </PropertyGroup>
 
   <PropertyGroup>
     <PackageId>Software9119.ProxyNsAnalyzer</PackageId>
-    <PackageVersion>1.0.0</PackageVersion>    
-    <PackageProjectUrl>https://github.com/deep-outcome/Software9119.ProxyNsAnalyzer</PackageProjectUrl>
-    <PackageIconUrl>https://raw.githubusercontent.com/deep-outcome/Software9119.ProxyNsAnalyzer/spike/ico.jpg</PackageIconUrl>    
+    <PackageVersion>1.0.1</PackageVersion>
+    <PackageProjectUrl>https://github.com/deep-outcome/Software9119.ProxyNsAnalyzer</PackageProjectUrl>    
+    <PackageIcon>ico.jpg</PackageIcon>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-    <Description>Proxy namespace usage analyzing.</Description>    
+    <Description>Proxy namespace usage analyzing.</Description>
     <Copyright>MIT</Copyright>
     <PackageTags>Software9119.ProxyNsAnalyzer, analyzers</PackageTags>
     <DevelopmentDependency>true</DevelopmentDependency>
@@ -36,6 +36,7 @@
   <ItemGroup Label="Info">
     <None Include="./../LICENSE.md" Pack="true" PackagePath="\" />
     <None Include="./README.md" Pack="true" PackagePath="\" />
+    <None Include="./../ico.jpg" Pack="true" PackagePath="\"/>
   </ItemGroup>
 
   <Target Name="_AddAnalyzersToOutput">
