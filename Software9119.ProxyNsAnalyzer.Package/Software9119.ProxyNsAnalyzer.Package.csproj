@@ -1,0 +1,48 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <Import Project="../SharedProjectConfiguration.props" />
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <IncludeBuildOutput>false</IncludeBuildOutput>    
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <SuppressDependenciesWhenPacking>true</SuppressDependenciesWhenPacking>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <PackageId>Software9119.ProxyNsAnalyzer</PackageId>
+    <PackageVersion>0.0.9</PackageVersion>    
+    <PackageProjectUrl>https://github.com/deep-outcome/Software9119.ProxyNsAnalyzer</PackageProjectUrl>
+    <PackageIconUrl>http://tbd</PackageIconUrl>    
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <Description>Proxy namespace usage analyzing.</Description>    
+    <Copyright>MIT</Copyright>
+    <PackageTags>Software9119.ProxyNsAnalyzer, analyzers</PackageTags>
+    <DevelopmentDependency>true</DevelopmentDependency>
+    <NoPackageAnalysis>true</NoPackageAnalysis>
+
+    <TargetsForTfmSpecificContentInPackage>$(TargetsForTfmSpecificContentInPackage);_AddAnalyzersToOutput</TargetsForTfmSpecificContentInPackage>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Software9119.ProxyNsAnalyzer.CodeFixes\Software9119.ProxyNsAnalyzer.CodeFixes.csproj" />
+    <ProjectReference Include="..\Software9119.ProxyNsAnalyzer.Analyzer\Software9119.ProxyNsAnalyzer.Analyzer.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="tools\*.ps1" CopyToOutputDirectory="PreserveNewest" Pack="true" PackagePath="" />
+  </ItemGroup>
+
+  <ItemGroup Label="Info">
+    <None Include="./../LICENSE.md" Pack="true" PackagePath="\" />
+    <None Include="./README.md" Pack="true" PackagePath="\" />
+  </ItemGroup>
+
+  <Target Name="_AddAnalyzersToOutput">
+    <ItemGroup>
+      <TfmSpecificPackageFile Include="$(OutputPath)\Software9119.ProxyNsAnalyzer.Analyzer.dll" PackagePath="analyzers/dotnet/cs" />
+      <TfmSpecificPackageFile Include="$(OutputPath)\Software9119.ProxyNsAnalyzer.CodeFixes.dll" PackagePath="analyzers/dotnet/cs" />
+    </ItemGroup>
+  </Target>
+
+</Project>

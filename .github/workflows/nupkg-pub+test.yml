@@ -1,0 +1,64 @@
+name: nupkg-publication
+
+on:
+  push:
+    branches: [ "spike" ]
+  workflow_dispatch:
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  nupkg-pub-job:
+    runs-on: windows-latest
+
+    environment: nupkg-pub
+    strategy:
+      matrix:
+        configuration: [Release]
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: 10.0.x
+
+    - name: Restore
+      run: dotnet restore
+
+    - name: Build
+      run: dotnet build --configuration ${{ matrix.configuration }} --no-restore
+
+    - name: Test
+      run: dotnet test --configuration ${{ matrix.configuration }} --no-restore
+    
+      
+    - name: Pack
+      run: dotnet pack ./Software9119.ProxyNsAnalyzer.Package/Software9119.ProxyNsAnalyzer.Package.csproj --configuration ${{ matrix.configuration }} --no-restore --output ${{ github.workspace }}/nupkgs
+
+    - name: Upload to artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: nupkgs-${{ matrix.configuration }}
+        path: ${{ github.workspace }}/nupkgs/*.*nupkg
+        retention-days: 2
+
+    - name: NuGet login (Trusted Publishing)
+      uses: NuGet/login@v1
+      id: login
+      with:
+        user: that-deepfelt
+    
+    - name: Push
+      shell: pwsh
+      run: |
+        $dir = "${{ github.workspace }}/nupkgs"
+        $files = Get-ChildItem -Path $dir -File | Where-Object { $_.Extension -in '.nupkg' }
+        if ($files.Count -eq 0) { Write-Error "No packages found in $dir"; exit 1 }        
+        foreach ($f in $files) {
+          Write-Host "Pushing $($f.Name)"
+          dotnet nuget push $f.FullName --api-key ${{ steps.login.outputs.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json --skip-duplicate }

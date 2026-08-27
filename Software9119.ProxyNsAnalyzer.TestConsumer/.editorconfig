@@ -1,0 +1,10 @@
+﻿[*.cs]
+
+# IDE0161 Convert to file-scoped namespace
+dotnet_diagnostic.IDE0161.severity = silent
+
+# CA1852 When a type is not accessible outside its assembly and has no subtypes within its containing assembly, it can be safely sealed. Sealing types can improve performance.
+dotnet_diagnostic.CA1852.severity = silent
+
+# CA1812 An instance of an assembly-level type is not created by code in the assembly.
+dotnet_diagnostic.CA1812.severity = silent

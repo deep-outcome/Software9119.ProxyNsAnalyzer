@@ -1,0 +1,22 @@
+[*.cs]
+
+# CA1515: Consider making public types internal
+dotnet_diagnostic.CA1515.severity = silent
+
+# CA1034: Nested types should not be visible
+dotnet_diagnostic.CA1034.severity = silent
+
+# CA1000: Do not declare static members on generic types
+dotnet_diagnostic.CA1000.severity = silent
+
+#CA1724: The type name Test conflicts in whole or in part with the namespace name 'Software9119.Test'. Change either name to eliminate the conflict. Violating this rule can reduce the usability of the library.
+dotnet_diagnostic.CA1724.severity = silent
+
+# CA2007: Consider calling ConfigureAwait on the awaited task
+dotnet_diagnostic.CA2007.severity = silent
+
+# CS0618: Type or member is obsolete
+dotnet_diagnostic.CS0618.severity = silent
+
+# CA1707: Identifiers should not contain underscores
+dotnet_diagnostic.CA1707.severity = silent

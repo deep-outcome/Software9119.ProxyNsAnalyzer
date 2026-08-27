@@ -1,0 +1,16 @@
+<Solution>
+  <Folder Name="/files/">
+    <File Path=".editorconfig" />
+    <File Path=".github/workflows/nupkg-pub+test.yml" />
+    <File Path="LICENSE.md" />
+    <File Path="note.text" />
+    <File Path="README.md" />
+    <File Path="sample/.editorconfig" />
+    <File Path="SharedProjectConfiguration.props" />
+  </Folder>
+  <Project Path="Software9119.ProxyNsAnalyzer.Analyzer/Software9119.ProxyNsAnalyzer.Analyzer.csproj" />
+  <Project Path="Software9119.ProxyNsAnalyzer.CodeFixes/Software9119.ProxyNsAnalyzer.CodeFixes.csproj" />
+  <Project Path="Software9119.ProxyNsAnalyzer.Package/Software9119.ProxyNsAnalyzer.Package.csproj" />
+  <Project Path="Software9119.ProxyNsAnalyzer.Test/Software9119.ProxyNsAnalyzer.Test.csproj" />
+  <Project Path="Software9119.ProxyNsAnalyzer.TestConsumer/Software9119.ProxyNsAnalyzer.TestConsumer.csproj" Id="ec8f44a3-ffcb-4a8a-8aa9-5eaa5321c62a" />
+</Solution>
