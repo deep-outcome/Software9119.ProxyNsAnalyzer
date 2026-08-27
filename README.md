@@ -45,7 +45,7 @@ MySolution
 So, you made it to maintain high level of file organization yet you do not want to introduce some _'obscure'_ namespace into solution.
 On other hand you want to be sure your foldered files have unfoldered namespace.
 
-Then, install Software9119.ProxyNsAnalyzer and set up `.editorconfig` and place it into `./MySolution/MyFeature/MyAuxies`.
+Then, install [Software9119.ProxyNsAnalyzer](https://www.nuget.org/packages/Software9119.ProxyNsAnalyzer/) and set up `.editorconfig` and place it into `./MySolution/MyFeature/MyAuxies`.
 
 ```editorconfig
 [*.cs]

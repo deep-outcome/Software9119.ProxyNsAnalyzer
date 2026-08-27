@@ -11,9 +11,9 @@
 
   <PropertyGroup>
     <PackageId>Software9119.ProxyNsAnalyzer</PackageId>
-    <PackageVersion>0.0.9</PackageVersion>    
+    <PackageVersion>1.0.0</PackageVersion>    
     <PackageProjectUrl>https://github.com/deep-outcome/Software9119.ProxyNsAnalyzer</PackageProjectUrl>
-    <PackageIconUrl>http://tbd</PackageIconUrl>    
+    <PackageIconUrl>https://raw.githubusercontent.com/deep-outcome/Software9119.ProxyNsAnalyzer/spike/ico.jpg</PackageIconUrl>    
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <Description>Proxy namespace usage analyzing.</Description>    
     <Copyright>MIT</Copyright>
